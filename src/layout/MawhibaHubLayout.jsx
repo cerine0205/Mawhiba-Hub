@@ -20,11 +20,19 @@ function MawhibaHubLayout() {
   };
 
   // يستقبل إجابات الفورم الثاني
-  const handleQuestionsNext = (answersData) => {
-    setData((prev) => ({ ...prev, answers: answersData }));
-    setStep(3); //   الانتقال ل صفحة الشكر
-  };
+const handleQuestionsNext = async (answersData) => {
+  const finalData = { ...data, answers: answersData };
+  setData(finalData);
 
+  // إرسال للباك
+  await fetch("http://127.0.0.1:8000/api/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(finalData),
+  });
+
+  setStep(3);
+};
   const handleRestart = () => {
     setData({ fullName: "", universityId: "", phone: "", answers: {} });
     setStep(1); //   الانتقال للفورم الأول
