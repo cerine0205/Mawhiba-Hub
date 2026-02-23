@@ -32,7 +32,7 @@ const Header = () => {
 
         <div className="header-right">
           <button className="theme-btn" onClick={toggleTheme}>
-            {theme === "dark" ? "🌞 لايت" : "🌙 دارك"}
+            {theme === "dark" ? "🌞" : "🌙"}
           </button>
 
           <div className="logo-box">

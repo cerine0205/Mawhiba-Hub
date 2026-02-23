@@ -1,0 +1,116 @@
+
+.reg {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 60px;
+  direction: rtl;
+  text-align: right;
+}
+
+.reg-card {
+  width: 100%;             
+  max-width: 900px;        
+  min-width: 280px;        
+
+  background: var(--surface-1);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  padding: clamp(20px, 3vw, 40px); 
+
+  box-shadow: 0 10px 40px var(--shadow-1);
+  backdrop-filter: blur(10px);
+}
+
+.reg-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.reg-title h1 {
+  margin: 0;
+  font-size: 26px;
+  color: var(--text-1);
+}
+
+.reg-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--accent-1);
+}
+
+.reg-form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  text-align: right;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-2);
+  font-size: 14px;
+}
+
+.req {
+  color: var(--accent-2);
+}
+
+.field input {
+  width: 95%;
+  height: 46px;
+  border-radius: 10px;
+  border: 1px solid var(--surface-border);
+  background: var(--input-bg);
+  color: var(--text-1);
+  padding: 0 14px;
+  font-size: 14px;
+  outline: none;
+  direction: rtl;
+  text-align: right;
+}
+
+.field input::placeholder {
+  color: var(--placeholder);
+}
+
+.field input:focus {
+  border-color: var(--focus-border);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.reg-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.btn-primary {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  color: var(--btn-text);
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 10px 25px var(--shadow-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.arrow {
+  font-weight: 700;
+}
