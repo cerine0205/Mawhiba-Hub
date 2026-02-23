@@ -19,7 +19,7 @@ const RegistrationForm = ({ onNext }) => {
         if (onNext) {
             onNext(form);
         }
-        
+
     };
 
     return (
@@ -40,6 +40,8 @@ const RegistrationForm = ({ onNext }) => {
                             value={form.fullName}
                             onChange={handleChange}
                             type="text"
+                            pattern="^[A-Za-z\u0600-\u06FF\s]+$"
+                            title="الاسم يجب أن يحتوي على حروف فقط"
                             placeholder="مثال: نورة محمد العتيبي"
                             required
                         />
@@ -54,6 +56,9 @@ const RegistrationForm = ({ onNext }) => {
                             value={form.universityId}
                             onChange={handleChange}
                             type="text"
+                            inputMode="numeric"
+                            pattern="[0-9]+"
+                            title="الرقم الجامعي يجب أن يكون أرقام فقط"
                             placeholder="مثال: 2540289"
                             required
                         />
