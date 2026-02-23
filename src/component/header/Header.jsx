@@ -1,8 +1,8 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
-import logo from "../../assets/logo.jpg"; // عدّلي المسار إذا مختلف
+import logo from "../../assets/logo.jpg";
 
-const Header = () => {
+const Header = ({ currentStep = 1 }) => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") || "dark"
   );
@@ -20,6 +20,12 @@ const Header = () => {
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  // نحسب النسبة
+  const progress =
+    currentStep === 1 ? 0 :
+    currentStep === 2 ? 50 :
+    100;
 
   return (
     <header className="header">
@@ -43,15 +49,28 @@ const Header = () => {
       </div>
 
       <div className="progress-container">
+
         <div className="progress-bar">
-          <div className="progress-fill"></div>
+          <div
+            className="progress-fill"
+            style={{ width: `${progress}%` }}
+          ></div>
         </div>
 
         <div className="steps">
-          <span className="step active">البيانات</span>
-          <span className="step">الأسئلة</span>
-          <span className="step">شكراً</span>
+          <span className={`step ${currentStep === 1 ? "active" : ""}`}>
+            البيانات
+          </span>
+
+          <span className={`step ${currentStep === 2 ? "active" : ""}`}>
+            الأسئلة
+          </span>
+
+          <span className={`step ${currentStep === 3 ? "active" : ""}`}>
+            شكراً
+          </span>
         </div>
+
       </div>
     </header>
   );
