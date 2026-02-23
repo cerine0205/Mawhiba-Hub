@@ -1,0 +1,128 @@
+
+.questions {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 60px;
+  direction: rtl;
+  text-align: right;
+ margin: 0 auto;
+}
+
+.questions-card {
+  width: 100%;
+  max-width: 900px;
+  min-width: 280px;
+
+  background: var(--surface-1);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  padding: clamp(20px, 3vw, 40px);
+
+  box-shadow: 0 10px 40px var(--shadow-1);
+  backdrop-filter: blur(10px);
+}
+
+.questions-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.questions-title h1 {
+  margin: 0;
+  font-size: 26px;
+  color: var(--text-1);
+}
+
+.questions-form {
+  display: grid;
+  gap: 16px;
+}
+
+.qfield {
+  text-align: right;
+}
+
+.qfield label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-2);
+  font-size: 14px;
+}
+
+.qfield input,
+.qfield textarea {
+  width: 95%;
+  border-radius: 10px;
+  border: 1px solid var(--surface-border);
+  background: var(--input-bg);
+  color: var(--text-1);
+  padding: 0 14px;
+  font-size: 14px;
+  outline: none;
+  direction: rtl;
+  text-align: right;
+}
+
+.qfield input {
+  height: 46px;
+}
+
+.qfield textarea {
+  min-height: 120px;
+  padding-top: 12px;
+  resize: vertical;
+}
+
+.qfield input::placeholder,
+.qfield textarea::placeholder {
+  color: var(--placeholder);
+}
+
+.qfield input:focus,
+.qfield textarea:focus {
+  border-color: var(--focus-border);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.questions-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--surface-border);
+  color: var(--text-1);
+  padding: 12px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--chip-bg);
+}
+
+.btn-primary {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  color: var(--btn-text);
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 10px 25px var(--shadow-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
