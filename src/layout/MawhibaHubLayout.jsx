@@ -25,6 +25,8 @@ const handleQuestionsNext = async (answersData) => {
   setData(finalData);
 
   // إرسال للباك
+  //http://127.0.0.1:8000/api/submit
+
   await fetch("https://mawhiba-abi.onrender.com/api/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

@@ -1,18 +1,19 @@
 
 body{
-    background-color: var(--bg-1);
+    background-color: var(--bg-2);
 }
 
 
 :root {
   --bg-1: #0b1023;
-  --bg-2: #121a3a;
+  --bg-2: #0b122a;
 
   --surface-1: rgba(255, 255, 255, 0.06);
   --surface-border: rgba(255, 255, 255, 0.05);
 
   --text-1: #ffffff;
   --text-2: rgba(255, 255, 255, 0.7);
+  --text-3: #ffffff;
 
   --accent-1: #8b5cf6;
   --accent-2: #c084fc;
@@ -23,7 +24,7 @@ body{
   --shadow-1: rgba(0, 0, 0, 0.25);
   --shadow-accent: rgba(139, 92, 246, 0.25);
 
-  --input-bg: rgba(0, 0, 0, 0.25);
+  --input-bg: rgba(0, 0, 0, 0.275);
   --placeholder: rgba(255, 255, 255, 0.35);
 
   --focus-border: rgba(139, 92, 246, 0.55);
@@ -42,6 +43,7 @@ body{
 
   --text-1: #0b1023;
   --text-2: rgba(11, 16, 35, 0.65);
+  --text-3: #0b0000;
 
   --accent-1: #6d28d9;
   --accent-2: #a855f7;
