@@ -1,3 +1,4 @@
+import FormIntro from "../FormIntro/FormIntro";
 import "./RegistrationForm.css";
 import { useState } from "react";
 
@@ -24,6 +25,9 @@ const RegistrationForm = ({ onNext }) => {
 
     return (
         <section className="reg">
+
+            <FormIntro />
+
             <div className="reg-card">
                 <div className="reg-title">
                     <span className="reg-icon" />

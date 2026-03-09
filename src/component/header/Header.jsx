@@ -32,8 +32,9 @@ const Header = ({ currentStep = 1 }) => {
       <div className="header-top">
 
         <div className="club-info">
-          <h2>نادي موهبة</h2>
-          <span>لجنة التصميم</span>
+          <h2>لجنة التصميم</h2>
+          <span>نادي موهبة</span>
+          
         </div>
 
         <div className="header-right">
