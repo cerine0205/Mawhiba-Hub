@@ -55,7 +55,9 @@ const handleQuestionsNext = async (answersData) => {
         />
       )}
 
-      {step === 3 && <ThankYouPage onReset={handleRestart} />}
+      {step === 3 && <ThankYouPage 
+      userData={data}
+      onReset={handleRestart} />}
     </>
   );
 }
