@@ -11,7 +11,7 @@ function MawhibaHubLayout() {
     fullName: "",
     universityId: "",
     phone: "",
-    answers: {}, 
+    answers: {},
   });
 
   const handleRegNext = (formData) => {
@@ -20,21 +20,34 @@ function MawhibaHubLayout() {
   };
 
   // يستقبل إجابات الفورم الثاني
-const handleQuestionsNext = async (answersData) => {
-  const finalData = { ...data, answers: answersData };
-  setData(finalData);
+  const handleQuestionsNext = async (answersData) => {
+    const cleanedAnswers = Object.fromEntries(
+      Object.entries(answersData).filter(
+        ([_, value]) =>
+          value !== null &&
+          value !== "" &&
+          !(typeof value === "string" && value.trim() === "")
+      )
+    );
 
-  // إرسال للباك
-  //http://127.0.0.1:8000/api/submit
+    const finalData = {
+      ...data,
+      answers: cleanedAnswers,
+    };
 
-  await fetch("https://mawhiba-abi.onrender.com/api/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(finalData),
-  });
+    setData(finalData);
 
-  setStep(3);
-};
+    await fetch("https://mawhiba-abi.onrender.com/api/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(finalData, null, 2),
+    });
+
+    setStep(3);
+  };
+
   const handleRestart = () => {
     setData({ fullName: "", universityId: "", phone: "", answers: {} });
     setStep(1); //   الانتقال للفورم الأول
@@ -42,8 +55,8 @@ const handleQuestionsNext = async (answersData) => {
 
   return (
     <>
-     
-     <Header currentStep={step}/>
+
+      <Header currentStep={step} />
 
       {step === 1 && <RegistrationForm onNext={handleRegNext} />}
 
@@ -55,9 +68,9 @@ const handleQuestionsNext = async (answersData) => {
         />
       )}
 
-      {step === 3 && <ThankYouPage 
-      userData={data}
-      onReset={handleRestart} />}
+      {step === 3 && <ThankYouPage
+        userData={data}
+        onReset={handleRestart} />}
     </>
   );
 }
