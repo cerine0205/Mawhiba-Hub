@@ -1,3 +1,5 @@
+
+
 .questions {
   width: 100%;
   display: flex;
@@ -6,6 +8,12 @@
   direction: rtl;
   text-align: right;
   margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.questions-card {
+  width: 100%;
+  max-width: 1000px;
 }
 
 .questions-title {
@@ -37,12 +45,17 @@
   padding: clamp(20px, 3vw, 40px);
   box-shadow: 0 10px 40px var(--shadow-1);
   backdrop-filter: blur(10px);
-
+  box-sizing: border-box;
 }
 
-.qfield >*{
+.qfield > * {
   margin-bottom: 30px;
 }
+
+.qfield > *:last-child {
+  margin-bottom: 0;
+}
+
 .qNumber {
   background-color: var(--accent-1);
   color: var(--btn-text);
@@ -55,16 +68,14 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
+  flex-shrink: 0;
 }
 
-.qfield-header{
+.qfield-header {
   display: flex;
-  gap:20px;
+  gap: 20px;
   align-items: center;
-
 }
-
-
 
 .qfield label {
   display: block;
@@ -72,20 +83,20 @@
   color: var(--text-2);
 }
 
-.qTitle
-{
+.qTitle {
   font-weight: bold;
   font-size: 25px;
   color: var(--text-3) !important;
+  line-height: 1.5;
 }
 
-p{
+p {
   color: var(--text-2);
 }
 
 .qfield input,
 .qfield textarea {
-  width: 95%;
+  width: 100%;
   border-radius: 10px;
   border: 1px solid var(--surface-border);
   background: var(--surface-1);
@@ -95,6 +106,7 @@ p{
   outline: none;
   direction: rtl;
   text-align: right;
+  box-sizing: border-box;
 }
 
 .qfield input {
@@ -123,18 +135,17 @@ p{
   max-width: 430px;
   display: flex;
   flex-direction: column;
-  gap: 15px; 
-  background-color:var(--surface-1);
-  padding: 20px; 
-  border-radius: 12px; 
+  gap: 15px;
+  background-color: var(--surface-1);
+  padding: 20px;
+  border-radius: 12px;
   box-shadow: 0 8px 10px var(--shadow-1);
+  box-sizing: border-box;
 }
 
-.input-group input{
+.input-group input {
   background: var(--input-bg);
 }
-
-
 
 .questions-actions {
   display: flex;
@@ -167,6 +178,7 @@ p{
   box-shadow: 0 10px 25px var(--shadow-accent);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -174,34 +186,98 @@ p{
   transform: translateY(1px);
 }
 
-
-
 input[type="radio"] {
-  margin-right: 10px;
+  margin: 0;
   width: 18px;
   height: 18px;
-  border-radius: 50%;
   cursor: pointer;
-  display: inline-block;
-}
-
-input[type="radio"]:checked {
-  background-color: var(--accent-1);
+  accent-color: var(--accent-1);
 }
 
 .radio-group {
   display: flex;
-  gap: 5px;
+  flex-wrap: wrap;
+  gap: 10px 16px;
   align-items: center;
-}
-
-.radio-group input {
-  margin-right: 5px;
 }
 
 .radio-group label {
   font-size: 16px;
-  margin-right: 10px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-2);
 }
 
+/* ---------- الجوال ---------- */
 
+@media (max-width: 768px) {
+  .questions {
+    padding: 20px 12px 40px;
+  }
+
+  .questions-title {
+    margin-bottom: 18px;
+  }
+
+  .questions-title h1 {
+    font-size: 20px;
+  }
+
+  .qfield {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .qfield > * {
+    margin-bottom: 18px;
+  }
+
+  .qfield-header {
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .qNumber {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .qTitle {
+    font-size: 19px;
+  }
+
+  .qfield input,
+  .qfield textarea {
+    font-size: 15px;
+  }
+
+  .input-group {
+    max-width: 100%;
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .radio-group label {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .questions-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
