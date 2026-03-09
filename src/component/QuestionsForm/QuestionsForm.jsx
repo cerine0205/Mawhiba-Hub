@@ -3,46 +3,43 @@ import { useState } from "react";
 
 export default function QuestionsForm({ userData, onNext, onBack }) {
   const [answers, setAnswers] = useState({
+    // أفكار الفرق
     فكرة_فريق_يوم_المهنة_1: "",
     فكرة_فريق_يوم_المهنة_2: "",
     فكرة_فريق_يوم_المهنة_3: "",
-
     فكرة_فريق_المنطقة_التفاعلية_1: "",
     فكرة_فريق_المنطقة_التفاعلية_2: "",
     فكرة_فريق_المنطقة_التفاعلية_3: "",
-
     فكرة_فريق_التقنيات_والمواقع_الإلكترونية_1: "",
     فكرة_فريق_التقنيات_والمواقع_الإلكترونية_2: "",
     فكرة_فريق_التقنيات_والمواقع_الإلكترونية_3: "",
-
     فكرة_بوث_نادي_موهبة_في_المعرض_1: "",
     فكرة_بوث_نادي_موهبة_في_المعرض_2: "",
     فكرة_بوث_نادي_موهبة_في_المعرض_3: "",
 
-    هل_سجلتم_الأفكار_في_الرابط: "",
-    الفكرة_المقترحة_التي_تم_إرسالها: "",
-
+    // الأنظمة وآلية العمل
     الأنظمة_التي_تحتاج_تغيير: "",
     الأنظمة_التي_تحتاج_إضافة: "",
-    مدة_المهمة: "",
     تفضيل_توزيع_المهام: "",
 
+    // الطوارئ
     التعامل_مع_الطوارئ: "",
     التعامل_مع_الطوارئ_اقتراح_الآخر: "",
-    طريقة_التواصل_بعد_المهمة: "",
     توزيع_المهام_عند_ظهور_أمر_جديد: "",
     توزيع_المهام_عند_ظهور_أمر_جديد_اقتراح_الآخر: "",
     المقترحات_لتقليل_الضغط_أو_التعامل_مع_الطوارئ: "",
 
+    // أسلوب العمل والتواصل
     تفضيل_العمل_الجماعي_أم_التوزيع_الفردي: "",
-    طريقة_تقسيم_الاجتماعات: "",
     طريقة_تقسيم_التواصل_بين_أعضاء_اللجنة_أثناء_الفعاليات: "",
     طريقة_التواصل_بين_الأعضاء_أخرى: "",
     اجتماع_قصير_قبل_الورشة_لتنظيم_الأفكار: "",
 
+    // قائدة لجنة التصميم
     تقييم_القائدة_من_حيث_التنظيم_والتواصل: "",
     النقاط_التي_تقترحينها_على_القائدة_تحسينها_أو_إضافتها: "",
-    طريقة_التواصل_مع_القائدة: "",
+    تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش: "",
+    ملاحظات_على_قائدة_لجنة_التصميم: "",
   });
 
   const handleChange = (name, value) => {
@@ -65,6 +62,9 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
         </div>
 
         <form className="questions-form" onSubmit={handleSubmit}>
+          {/* ====================================================== */}
+          {/* 1) أفكار الفرق */}
+          {/* ====================================================== */}
           <div className="qfield">
             <div className="qfield-header">
               <div className="qNumber">1</div>
@@ -187,60 +187,12 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
             </div>
           </div>
 
+          {/* ====================================================== */}
+          {/* 2) الأنظمة وآلية العمل */}
+          {/* ====================================================== */}
           <div className="qfield">
             <div className="qfield-header">
               <div className="qNumber">2</div>
-              <label className="qTitle">
-                هل سجلتوا أفكاركم في الرابط الخاص بالأفكار؟
-              </label>
-            </div>
-
-            <div className="radio-group">
-              <label>
-                <input
-                  type="radio"
-                  name="هل_سجلتم_الأفكار_في_الرابط"
-                  value="نعم"
-                  onChange={(e) =>
-                    handleChange("هل_سجلتم_الأفكار_في_الرابط", e.target.value)
-                  }
-                  required
-                />
-                نعم
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  name="هل_سجلتم_الأفكار_في_الرابط"
-                  value="لا"
-                  onChange={(e) =>
-                    handleChange("هل_سجلتم_الأفكار_في_الرابط", e.target.value)
-                  }
-                  required
-                />
-                لا
-              </label>
-            </div>
-
-            {answers.هل_سجلتم_الأفكار_في_الرابط === "نعم" && (
-              <div>
-                <label>ما الفكرة التي أرسلتها عبر الرابط؟</label>
-                <textarea
-                  value={answers.الفكرة_المقترحة_التي_تم_إرسالها}
-                  onChange={(e) =>
-                    handleChange("الفكرة_المقترحة_التي_تم_إرسالها", e.target.value)
-                  }
-                  placeholder="اكتب الفكرة هنا"
-                  required
-                />
-              </div>
-            )}
-          </div>
-
-          <div className="qfield">
-            <div className="qfield-header">
-              <div className="qNumber">3</div>
               <label className="qTitle">الأنظمة وآلية العمل</label>
             </div>
 
@@ -264,53 +216,6 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
               required
             />
 
-            <label>ما المدة المناسبة لإنجاز المهمة؟</label>
-            <div className="radio-group">
-              <label>
-                <input
-                  type="radio"
-                  name="مدة_المهمة"
-                  value="يوم واحد"
-                  onChange={(e) => handleChange("مدة_المهمة", e.target.value)}
-                  required
-                />
-                يوم واحد
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  name="مدة_المهمة"
-                  value="يومان"
-                  onChange={(e) => handleChange("مدة_المهمة", e.target.value)}
-                  required
-                />
-                يومان
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  name="مدة_المهمة"
-                  value="3 أيام"
-                  onChange={(e) => handleChange("مدة_المهمة", e.target.value)}
-                  required
-                />
-                3 أيام
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  name="مدة_المهمة"
-                  value="أسبوع"
-                  onChange={(e) => handleChange("مدة_المهمة", e.target.value)}
-                  required
-                />
-                أسبوع
-              </label>
-            </div>
-
             <label>كيف تفضلين تقسيم المهام للورش الجديدة؟</label>
             <textarea
               value={answers.تفضيل_توزيع_المهام}
@@ -322,9 +227,12 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
             />
           </div>
 
+          {/* ====================================================== */}
+          {/* 3) التعامل مع الطوارئ */}
+          {/* ====================================================== */}
           <div className="qfield">
             <div className="qfield-header">
-              <div className="qNumber">4</div>
+              <div className="qNumber">3</div>
               <label className="qTitle">التعامل مع الطوارئ</label>
             </div>
 
@@ -383,16 +291,6 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
                 />
               </div>
             )}
-
-            <label>لو حصل ظرف يمنعك من إكمال مهمتك في اللجنة، كيف تحب يكون التواصل معنا؟</label>
-            <textarea
-              value={answers.طريقة_التواصل_بعد_المهمة}
-              onChange={(e) =>
-                handleChange("طريقة_التواصل_بعد_المهمة", e.target.value)
-              }
-              placeholder="اكتب الإجابة هنا"
-              required
-            />
 
             <label>إذا ظهر شيء جديد في اللحظات الأخيرة كيف تفضلين توزيع المهام؟</label>
             <div className="radio-group">
@@ -480,9 +378,12 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
             />
           </div>
 
+          {/* ====================================================== */}
+          {/* 4) أسلوب العمل والتواصل */}
+          {/* ====================================================== */}
           <div className="qfield">
             <div className="qfield-header">
-              <div className="qNumber">5</div>
+              <div className="qNumber">4</div>
               <label className="qTitle">أسلوب العمل والتواصل</label>
             </div>
 
@@ -537,48 +438,6 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
               </label>
             </div>
 
-            <label>تحبون الاجتماعات تكون:</label>
-            <div className="radio-group">
-              <label>
-                <input
-                  type="radio"
-                  name="طريقة_تقسيم_الاجتماعات"
-                  value="قصيرة يومية"
-                  onChange={(e) =>
-                    handleChange("طريقة_تقسيم_الاجتماعات", e.target.value)
-                  }
-                  required
-                />
-                قصيرة يومية
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  name="طريقة_تقسيم_الاجتماعات"
-                  value="أسبوعية"
-                  onChange={(e) =>
-                    handleChange("طريقة_تقسيم_الاجتماعات", e.target.value)
-                  }
-                  required
-                />
-                أسبوعية
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  name="طريقة_تقسيم_الاجتماعات"
-                  value="عند الضرورة فقط"
-                  onChange={(e) =>
-                    handleChange("طريقة_تقسيم_الاجتماعات", e.target.value)
-                  }
-                  required
-                />
-                عند الضرورة فقط
-              </label>
-            </div>
-
             <label>كيف تحبون يكون التواصل بين أعضاء اللجنة أثناء الفعاليات؟</label>
             <div className="radio-group">
               <label>
@@ -611,22 +470,6 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
                   required
                 />
                 واتساب
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  name="طريقة_تقسيم_التواصل_بين_أعضاء_اللجنة_أثناء_الفعاليات"
-                  value="تليجرام"
-                  onChange={(e) =>
-                    handleChange(
-                      "طريقة_تقسيم_التواصل_بين_أعضاء_اللجنة_أثناء_الفعاليات",
-                      e.target.value
-                    )
-                  }
-                  required
-                />
-                تليجرام
               </label>
 
               <label>
@@ -690,9 +533,12 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
             </div>
           </div>
 
+          {/* ====================================================== */}
+          {/* 5) قائدة لجنة التصميم */}
+          {/* ====================================================== */}
           <div className="qfield">
             <div className="qfield-header">
-              <div className="qNumber">6</div>
+              <div className="qNumber">5</div>
               <label className="qTitle">قائدة لجنة التصميم</label>
             </div>
 
@@ -764,49 +610,82 @@ export default function QuestionsForm({ userData, onNext, onBack }) {
               </div>
             )}
 
-            <label>كيف تفضلين التواصل مع القائدة؟</label>
+            <label>
+              كيف تقيّمين أداء قائدة لجنة التصميم في إيصال المعلومات وفتح باب النقاش مع الأعضاء؟
+            </label>
             <div className="radio-group">
               <label>
                 <input
                   type="radio"
-                  name="طريقة_التواصل_مع_القائدة"
-                  value="تواصل يومي"
+                  name="تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش"
+                  value="ممتاز"
                   onChange={(e) =>
-                    handleChange("طريقة_التواصل_مع_القائدة", e.target.value)
+                    handleChange(
+                      "تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش",
+                      e.target.value
+                    )
                   }
                   required
                 />
-                تواصل يومي
+                ممتاز
               </label>
 
               <label>
                 <input
                   type="radio"
-                  name="طريقة_التواصل_مع_القائدة"
-                  value="عند الحاجة"
+                  name="تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش"
+                  value="جيد"
                   onChange={(e) =>
-                    handleChange("طريقة_التواصل_مع_القائدة", e.target.value)
+                    handleChange(
+                      "تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش",
+                      e.target.value
+                    )
                   }
                   required
                 />
-                عند الحاجة
+                جيد
               </label>
 
               <label>
                 <input
                   type="radio"
-                  name="طريقة_التواصل_مع_القائدة"
-                  value="أسبوعي"
+                  name="تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش"
+                  value="يحتاج تحسين"
                   onChange={(e) =>
-                    handleChange("طريقة_التواصل_مع_القائدة", e.target.value)
+                    handleChange(
+                      "تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش",
+                      e.target.value
+                    )
                   }
                   required
                 />
-                أسبوعي
+                يحتاج تحسين
               </label>
             </div>
+
+            {answers.تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش === "يحتاج تحسين" && (
+              <div>
+                <label>
+                  ما هي النقاط التي تريدين أن تقوم قائدة لجنة التصميم بتعديلها أو إضافتها؟
+                </label>
+                <textarea
+                  value={answers.ملاحظات_على_قائدة_لجنة_التصميم || ""}
+                  onChange={(e) =>
+                    handleChange("ملاحظات_على_قائدة_لجنة_التصميم", e.target.value)
+                  }
+                  placeholder="اكتب الإجابة هنا"
+                  required={
+                    answers.تقييم_أداء_القائدة_في_إيصال_المعلومات_وفتح_باب_النقاش ===
+                    "يحتاج تحسين"
+                  }
+                />
+              </div>
+            )}
           </div>
 
+          {/* ====================================================== */}
+          {/* الأزرار */}
+          {/* ====================================================== */}
           <div className="questions-actions">
             <button type="button" className="btn-secondary" onClick={onBack}>
               رجوع
